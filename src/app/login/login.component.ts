@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   signIn(email : String, password : String) {
     this.dataService.signIn(email, password).subscribe((data: any[])=>{
       this.user = data;
+      alert("Login was successful!");
     })
   }
 

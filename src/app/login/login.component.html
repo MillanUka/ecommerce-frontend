@@ -1,0 +1,22 @@
+<mat-grid-list cols="1" rowHeight="500px">
+    <mat-grid-tile>
+        <div class="login-container">
+          <mat-form-field appearance="fill" class="width-100">
+            <mat-label>Email address</mat-label>
+            <input #emailInput matInput [(ngModel)]="email" name="email" placeholder="Ex. joe@example.com">
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill" class="width-100">
+            <mat-label>Enter password</mat-label>
+            <input #pwdInput matInput [(ngModel)]="password" name="password" [type]="pwdHide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="pwdHide = !pwdHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="pwdHide">
+            <mat-icon>{{pwdHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <br />
+          <button mat-button (click)='signIn(email, password)'>
+            Login
+          </button>
+        </div>
+    </mat-grid-tile>
+    </mat-grid-list>

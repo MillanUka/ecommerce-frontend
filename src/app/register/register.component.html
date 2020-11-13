@@ -1,0 +1,30 @@
+<mat-grid-list cols="1" rowHeight="500px">
+    <mat-grid-tile>
+        <div class="register-container">
+          <mat-form-field appearance="fill" class="width-100">
+            <mat-label>Email address</mat-label>
+            <input matInput placeholder="Ex. pat@example.com">
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill" class="width-100">
+            <mat-label>Enter password</mat-label>
+            <input matInput [type]="pwdHide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="pwdHide = !pwdHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="pwdHide">
+            <mat-icon>{{pwdHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <br />
+          <mat-form-field appearance="fill" class="width-100">
+            <mat-label>Confirm password</mat-label>
+            <input matInput [type]="cPwdHide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="cPwdHide = !cPwdHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="cPwdHide">
+            <mat-icon>{{cPwdHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <br />
+          <button mat-button>
+            Register
+          </button>
+        </div>
+    </mat-grid-tile>
+    </mat-grid-list>

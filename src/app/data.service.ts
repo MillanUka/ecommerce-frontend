@@ -7,7 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class DataService {
   constructor(private httpClient: HttpClient) {}
-
+  currentUser = null; 
   getProducts() {
     return this.httpClient.get('/api/v1/product');
   }

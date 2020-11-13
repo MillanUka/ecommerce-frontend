@@ -8,7 +8,6 @@ import { DataService } from '../data.service';
 })
 export class LoginComponent implements OnInit {
   pwdHide = true;
-  user = null;
   email = "";
   password = "";
   constructor(private dataService: DataService) {}
@@ -17,8 +16,12 @@ export class LoginComponent implements OnInit {
 
   signIn(email : String, password : String) {
     this.dataService.signIn(email, password).subscribe((data: any[])=>{
-      console.log(data);
+      this.user = data;
     })
+  }
+
+  set user(user: any[]) {
+    this.dataService.currentUser = user;
   }
 
 

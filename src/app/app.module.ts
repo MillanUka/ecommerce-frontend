@@ -17,6 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { SellComponent } from './sell/sell.component';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { LoginComponent } from './login/login.component';
     BrowserAnimationsModule,
     FormsModule
   ],
-  declarations: [AppComponent, HomeComponent, AboutComponent, RegisterComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent, AboutComponent, RegisterComponent, LoginComponent, SellComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -11,6 +11,22 @@ h1 {
   right: 0;
 }
 
+button {
+  text-decoration: none;
+}
+
+a {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: darkgray;
+}
 @media all and (max-width: 475px) {
     .email { display: none; }
 }
+

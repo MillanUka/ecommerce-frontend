@@ -1,0 +1,63 @@
+<div style="padding: 13px">
+  <div *ngIf="user === null">
+    <h1>Please Login!</h1>
+    <br />
+    <a routerLink="/login">
+      <button mat-button>Login</button>
+    </a>
+  </div>
+  <mat-grid-list *ngIf="user !== null" cols="1" rowHeight="500px">
+    <mat-grid-tile>
+      <div class="login-container">
+        <mat-form-field appearance="fill" class="width-100">
+          <mat-label>Name</mat-label>
+          <input
+            #nameInput
+            matInput
+            [(ngModel)]="name"
+            name="name"
+            placeholder="Ex. Chair"
+            type="text"
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="fill" class="width-100">
+          <mat-label>Price</mat-label>
+          <input
+            matInput
+            [(ngModel)]="price"
+            name="price"
+            placeholder="Ex. 2.50"
+            type="number"
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="fill" class="width-100">
+          <mat-label>Description</mat-label>
+          <input
+            matInput
+            [(ngModel)]="desc"
+            name="desc"
+            placeholder="Ex. This is a wooden chair."
+            type="text"
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="fill" class="width-100">
+          <mat-label>Thumbnail</mat-label>
+          <input
+            matInput
+            [(ngModel)]="thumbnail"
+            name="thumbnail"
+            placeholder="https://raw.githubusercontent.com/MillanUka/MillanUka.github.io/master/resources/placeholder.png"
+            type="url"
+          />
+        </mat-form-field>
+        <br />
+        <button mat-button (click)="submit(name, price, desc, thumbnail)">
+          Submit
+        </button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

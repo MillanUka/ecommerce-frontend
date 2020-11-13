@@ -7,31 +7,46 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class DataService {
   constructor(private httpClient: HttpClient) {}
-  currentUser = null; 
+  currentUser = null;
   getProducts() {
     return this.httpClient.get('/api/v1/product');
   }
 
-  searchProduct(limit : String, query : String) {
+  searchProduct(limit: String, query: String) {
     return this.httpClient.get(
       '/api/v1/product?limit' + limit + '&query=' + query
     );
   }
 
-  signIn(email : String, password : String) {
-    var userCred = {email : email, password : password};
-    return this.httpClient.post('/api/v1/auth/login', userCred).pipe(
-      catchError(this.handleError)
-    );
+  submitProduct(name: String, price: Number, desc: String, thumbnail: String) {
+    return this.httpClient
+      .post('/api/v1/product/submit', {
+        name: name,
+        price: price,
+        desc: desc,
+        thumbnail: thumbnail,
+        submitter: this.currentUser,
+      })
+      .pipe(catchError(this.handleError));
   }
 
+  signIn(email: String, password: String) {
+    return this.httpClient
+      .post('/api/v1/auth/login', { email: email, password: password })
+      .pipe(catchError(this.handleError));
+  }
+
+  register(email: String, password: String) {
+    return this.httpClient
+      .post('/api/v1/auth/register', { email: email, password: password })
+      .pipe(catchError(this.handleError));
+  }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
-      alert('An error occurred:'+ error.error.message);
+      alert('An error occurred:' + error.error.message);
     } else {
       alert(error.error.msg);
     }
-    return throwError(
-      'Something bad happened; please try again later.');
+    return throwError('Something bad happened; please try again later.');
   }
 }

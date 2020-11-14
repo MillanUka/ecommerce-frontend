@@ -8,6 +8,7 @@ import { catchError, retry } from 'rxjs/operators';
 export class DataService {
   constructor(private httpClient: HttpClient) {}
   currentUser = null;
+  isAuth : Boolean;
   getProducts() {
     return this.httpClient.get('/api/v1/product');
   }
@@ -41,11 +42,28 @@ export class DataService {
       .post('/api/v1/auth/register', { email: email, password: password })
       .pipe(catchError(this.handleError));
   }
+
+  checkAuth() {
+    return this.httpClient
+      .get('/api/v1/auth/check')
+      .pipe(catchError(this.handleError));
+  }
+
+  getUser(userId : String) {
+    return this.httpClient
+    .get('/api/v1/user/' + userId)
+    .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       alert('An error occurred:' + error.error.message);
     } else {
-      alert(error.error.msg);
+      var message: String = error.error.msg;
+      if (message === undefined) {
+        message = 'There was an error! Please try again.';
+      }
+      alert(message);
     }
     return throwError('Something bad happened; please try again later.');
   }

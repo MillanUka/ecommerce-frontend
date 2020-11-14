@@ -3,12 +3,12 @@
         <div class="register-container">
           <mat-form-field appearance="fill" class="width-100">
             <mat-label>Email address</mat-label>
-            <input matInput placeholder="Ex. pat@example.com">
+            <input matInput placeholder="Ex. pat@example.com" [(ngModel)]="email" name="email">
           </mat-form-field>
           <br>
           <mat-form-field appearance="fill" class="width-100">
             <mat-label>Enter password</mat-label>
-            <input matInput [type]="pwdHide ? 'password' : 'text'">
+            <input matInput [(ngModel)]="password" name="password" [type]="pwdHide ? 'password' : 'text'">
             <button mat-icon-button matSuffix (click)="pwdHide = !pwdHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="pwdHide">
             <mat-icon>{{pwdHide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
@@ -16,7 +16,7 @@
           <br />
           <mat-form-field appearance="fill" class="width-100">
             <mat-label>Confirm password</mat-label>
-            <input matInput [type]="cPwdHide ? 'password' : 'text'">
+            <input matInput [(ngModel)]="cPassword" name="cPassword" [type]="cPwdHide ? 'password' : 'text'">
             <button mat-icon-button matSuffix (click)="cPwdHide = !cPwdHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="cPwdHide">
             <mat-icon>{{cPwdHide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>

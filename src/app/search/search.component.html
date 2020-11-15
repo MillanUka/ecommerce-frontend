@@ -1,0 +1,36 @@
+<div>
+  <div>
+    <br />
+    <div class="search-bar" style="border: 2px solid">
+      <br />
+      <mat-form-field appearance="fill" class="search">
+        <input
+          matInput
+          type="text"
+          placeholder="Ex. Chair"
+          [(ngModel)]="query"
+          name="query"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          type="number"
+          placeholder="10"
+          [(ngModel)]="limit"
+          name="limit"
+        />
+      </mat-form-field>
+      <button mat-button (click)="searchProducts(limit, query)">Search</button>
+    </div>
+  </div>
+  <br />
+  <div class="search-results-container">
+    <app-search-result
+      *ngFor="let product of products"
+      [product]="product"
+      style="margin-top: 10px"
+    ></app-search-result>
+  </div>
+</div>

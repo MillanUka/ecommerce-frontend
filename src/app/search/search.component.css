@@ -1,0 +1,7 @@
+.search-bar {
+    text-align: center;
+}
+
+.search-bar .search {
+    min-width: 75%;
+}

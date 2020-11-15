@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { SellComponent } from './sell/sell.component';
+import { SearchComponent } from './search/search.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 
 @NgModule({
@@ -36,7 +38,7 @@ import { SellComponent } from './sell/sell.component';
     BrowserAnimationsModule,
     FormsModule
   ],
-  declarations: [AppComponent, HomeComponent, AboutComponent, RegisterComponent, LoginComponent, SellComponent],
+  declarations: [AppComponent, HomeComponent, AboutComponent, RegisterComponent, LoginComponent, SellComponent, SearchComponent, SearchResultComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -13,9 +13,9 @@ export class DataService {
     return this.httpClient.get('/api/v1/product');
   }
 
-  searchProduct(limit: String, query: String) {
+  searchProduct(limit: Number, query: String) {
     return this.httpClient.get(
-      '/api/v1/product?limit' + limit + '&query=' + query
+      '/api/v1/product?limit=' + limit + '&query=' + query
     );
   }
 

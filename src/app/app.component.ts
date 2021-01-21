@@ -13,9 +13,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     if (this.dataService.currentUser === null) {
       this.dataService.checkAuth().subscribe((data) => {
-        console.log(data);
         this.dataService.getUser(data['user']).subscribe((data) => {
-          console.log(data);
+          this.dataService.currentUser = data;
         });
       });
     }

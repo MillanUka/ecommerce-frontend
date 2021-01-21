@@ -20,6 +20,7 @@ export class DataService {
   }
 
   submitProduct(name: String, price: Number, desc: String, thumbnail: String) {
+    console.log(this.currentUser)
     return this.httpClient
       .post('/api/v1/product/submit', {
         name: name,
@@ -49,21 +50,23 @@ export class DataService {
       .pipe(catchError(this.handleError));
   }
 
-  getUser(userId : String) {
+  getUser(userId : string) {
     return this.httpClient
-    .get('/api/v1/user/' + userId)
+    .get('/api/v1/user/', {params: {
+      id: userId
+    }})
     .pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
+    var message = "";
     if (error.error instanceof ErrorEvent) {
-      alert('An error occurred:' + error.error.message);
+      message = 'An error occurred:' + error.error.message;
     } else {
-      var message: String = error.error.msg;
+      message = error.error.msg;
       if (message === undefined) {
         message = 'There was an error! Please try again.';
       }
-      alert(message);
     }
     return throwError('Something bad happened; please try again later.');
   }

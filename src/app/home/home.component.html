@@ -1,7 +1,7 @@
-<div style="padding: 13px">
+<div>
   <mat-spinner *ngIf="products.length === 0"></mat-spinner>
 
-  <mat-card *ngFor="let product of products" style="margin-top: 10px">
+  <mat-card *ngFor="let product of products" style="margin-top: 10px;">
     <mat-card-header>
       <mat-card-title>{{ product.name }}</mat-card-title>
       <mat-card-subtitle>${{ product.price }} NZD </mat-card-subtitle>
@@ -11,9 +11,9 @@
         {{ product.desc }}
       </p>
       <img
-        style="height: 100%; width: 100%"
         src="{{ product.thumbnail }}"
         alt="image of {{ product.name }}"
+        onerror= "this.src='https://raw.githubusercontent.com/MillanUka/MillanUka.github.io/master/resources/placeholder.png'"
       />
     </mat-card-content>
 

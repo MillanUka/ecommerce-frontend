@@ -1,9 +1,10 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  float: left;
 }
 
 h1 {
-  color: aquamarine;
+  font-size: xx-large;
 }
 
 .email {
@@ -28,5 +29,5 @@ a:hover {
 }
 @media all and (max-width: 475px) {
     .email { display: none; }
+    h1 { font-size: medium;}
 }
-
